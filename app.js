@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const errorController = require('./controllers/error');
-const User = require('./models/user');
+//const User = require('./models/user');
 
 const app = express();
 
@@ -18,14 +18,14 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   User.findById('5e6cfa1f3041046674f88966')
     .then(user => {
       req.user = new User(user.name, user.email, user.cart, user._id);
       next();
     })
     .catch(err => console.log(err));
-});
+}); */
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
@@ -34,7 +34,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://akashbarsagadey:akash12345@cluster0-l7dfp.mongodb.net/test?retryWrites=true&w=majority',
+    'mongodb+srv://akashbarsagadey:akash12345@cluster0-l7dfp.mongodb.net/shop?retryWrites=true&w=majority',
     { useUnifiedTopology: true, useNewUrlParser: true }
   )
   .then(result => {
