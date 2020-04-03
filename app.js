@@ -36,14 +36,17 @@ app.use(
   })
 );
 
-/* app.use((req, res, next) => {
-  User.findById('5e833eee38cbe913786e4213')
+app.use((req, res, next) => {
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
     .then(user => {
       req.user = user;
       next();
     })
     .catch(err => console.log(err));
-}); */
+});
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
@@ -57,8 +60,8 @@ mongoose
     User.findOne().then(user => {
       if (!user) {
         const user = new User({
-          name: 'Max',
-          email: 'max@test.com',
+          name: 'Akash',
+          email: 'akash@gmail.com',
           cart: {
             items: []
           }
