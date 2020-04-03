@@ -1,10 +1,6 @@
+const User = require('../models/user');
+
 exports.getLogin = (req, res, next) => {
-  //   const isLoggedIn = req
-  //     .get('Cookie')
-  //     .split(';')[1]
-  //     .trim()
-  //     .split('=')[1] === 'true';
-  console.log(req.session.isLoggedIn);
   res.render('auth/login', {
     path: '/login',
     pageTitle: 'Login',
@@ -13,7 +9,11 @@ exports.getLogin = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  //res.setHeader('Set-Cookie', 'loggedIn=true; HttpOnly');
-  req.session.isLoggedIn = true;
-  res.redirect('/');
+  User.findById('5e833eee38cbe913786e4213')
+    .then(user => {
+      req.session.isLoggedIn = true;
+      req.session.user = user;
+      res.redirect('/');
+    })
+    .catch(err => console.log(err));
 };
