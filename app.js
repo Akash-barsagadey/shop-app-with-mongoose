@@ -57,7 +57,7 @@ app.use(errorController.get404);
 mongoose
   .connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(result => {
-    User.findOne().then(user => {
+    /* User.findOne().then(user => {
       if (!user) {
         const user = new User({
           name: 'Akash',
@@ -68,7 +68,7 @@ mongoose
         });
         user.save();
       }
-    });
+    }); */
     app.listen(3000);
   })
   .catch(err => {
