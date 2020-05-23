@@ -32,7 +32,7 @@ npm run start
 
 👤 **Akash Barsagadey**
 
-* Github: [@Akash-barsagadey](https://github.com/Akash-barsagadey)
+-   Github: [@Akash-barsagadey](https://github.com/Akash-barsagadey)
 
 ## 🤝 Contributing
 
@@ -46,6 +46,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [Akash Barsagadey](https://github.com/Akash-barsagadey).<br />
 This project is [ISC](https://github.com/Akash-barsagadey/shop-app-with-mongoose/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
